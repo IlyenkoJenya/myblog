@@ -1,0 +1,16 @@
+{% extends "blogs/base.html"%} 
+
+
+
+{% block content%}
+
+<p>NEW FUCKING BLOG</p>
+
+<form action="{% url 'приложение:новый_блог'%}" method="post">
+	{% csrf_token %} <!--данный тег нужен для преотвращения несанкционоого доступа к серверу-->
+	{{form.as_p}} <!--Модификатор as_p приказывает Django отобразить все элементы 
+формы в формате абзацев — это простой способ аккуратного отображения формы-->
+	<button name="submit">add blog</button>
+</form>
+
+{% endblock content%}

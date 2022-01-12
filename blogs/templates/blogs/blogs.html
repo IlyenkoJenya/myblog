@@ -1,0 +1,19 @@
+{% extends "blogs/base.html"%} 
+
+{% block content%}
+
+	<p>Тут перечень моих блогов</p>
+
+
+	<ul>
+		{%for blog in blogs%}
+		<li>{{ blog }}</li>
+		<a href="{% url 'приложение:редактированние_блога' blog.id%}">изменить блог</a>
+		{%empty%}
+			<li>NO TOPICS HAVE BEEN ADDED YET.</li>
+		{% endfor %}
+	</ul>
+
+	<a href="{% url 'приложение:новый_блог'%}"> добавить новый блог:</a> <!-- ссылка на страницу для создания новой темы-->
+
+{%endblock content%}
